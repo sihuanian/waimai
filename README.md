@@ -47,5 +47,8 @@ npm run build --report
     
 ## NewsInfo.vue
     + 使用mockjs模拟后台数据
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-"# waimai" 
+
+## subcomponents/comment.vue 
+    + 绘制评论界面
+    + 加载评论数据
+
