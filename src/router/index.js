@@ -6,6 +6,8 @@ import Shopping from '../pages/tabbar/Shopping'
 import Search from '../pages/tabbar/Search'
 import NewsList from '../pages/news/NewsList'
 import NewsInfo from '../pages/news/NewsInfo'
+import PhotoList from '../pages/sharephoto/PhotoList'
+import PhotosInfo from '../pages/sharephoto/PhotosInfo'
 
 Vue.use(Router)
 
@@ -17,7 +19,9 @@ export default new Router({
     {path: '/shopping', component: Shopping},
     {path: '/search', component: Search},
     {path: '/home/newslist', component: NewsList},
-    {path: '/home/newsinfo/:id', component: NewsInfo}
+    {path: '/home/newsinfo/:id', component: NewsInfo},
+    {path: '/home/photolist', component: PhotoList},
+    {path: '/home/photoinfo', component: PhotosInfo}
   ],
   linkActiveClass: 'mui-active' // 覆盖高亮的类，默认的是 router-link-active
 })

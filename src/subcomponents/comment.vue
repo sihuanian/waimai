@@ -2,8 +2,8 @@
   <div class="comment">
     <h3>发表评论</h3>
     <hr>
-    <textarea placeholder="请输入你要评论的内容 （最多120字）" maxlength="120"></textarea>
-    <mt-button type="primary" size="large">发表评论</mt-button>
+    <textarea placeholder="请输入你要评论的内容 （最多120字）" maxlength="120" v-model="msg"></textarea>
+    <mt-button type="primary" size="large" @click="addComment">发表评论</mt-button>
     <div class="comment-main" v-for="comment in comments" :key="comment.floor">
       <div class="comment-title">
         第{{comment.floor}}楼：用户：{{comment.username}} 发表时间：{{comment.date}}
@@ -23,7 +23,8 @@
   export default {
     data: function () {
       return {
-        comments: null
+        comments: null,
+        msg: ''
       }
     },
 
@@ -36,6 +37,23 @@
       },
       getMore () {
         this.getComment()
+      },
+      addComment () {
+        if (this.msg.trim().length === 0) {
+          return
+        }
+
+        axios.get('/comment').then(result => {
+            const cmt = {
+              floor: 0,
+              username: '匿名用户',
+              date: '2019-06-16  00:00:00',
+              detail: this.msg
+            }
+            this.comments.unshift(cmt)
+            this.msg = ''
+          }
+        )
       }
     },
 

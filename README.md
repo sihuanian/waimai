@@ -51,4 +51,25 @@ npm run build --report
 ## subcomponents/comment.vue 
     + 绘制评论界面
     + 加载评论数据
-
+    
+## PhotoList.vue    
+使用tab-top-webview-main.html设置滑动的导航条
+  1. 引入mui.js(出现严格模式的报错)
+    + [使用babel-plugin-transform-remove-strict-mode](<https://github.com/genify/babel-plugin-transform-remove-strict-mode>) 
+    + [引入mui.js报错](<https://blog.csdn.net/u012815877/article/details/81187826>)
+  2. 页面下方的导航栏没有效果（App.vue 中的 `router-link` 身上的类名 `mui-tab-item` 存在兼容性问题）
+    + 改变mui-tab-item的名字（如：mui-tab-item1），将与mui-tab-item相关属性copy到mui-tab-item1
+  3. 在导航栏上显示static/photosCatagory.json中的数据
+    + 创建mock/photoCategroy.js,导入mockjs和static/photoCatagory.json
+    + Mock.mock(url,{static, messages})
+    + 在PhotoList.vue中动态设置a标签的类名
+    
+ 制作图片列表
+  1. 图片列表使用mint-ui lazy load
+    + lazy load需要全局引入mintui
+  2. 渲染   
+  3. 修改样式
+  
+  图片详情
+  1. 创建photosInfo.vue
+  2. 改造a标签，需要使用tag属性
