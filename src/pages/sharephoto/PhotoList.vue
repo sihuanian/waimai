@@ -10,7 +10,6 @@
           </a>
         </div>
       </div>
-
     </div>
     <ul class="photo-list">
       <router-link v-for="item in list" :key="item.message.id" to="/home/photoinfo" tag="li">
